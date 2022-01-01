@@ -15,7 +15,17 @@ Implements:
 
 ## Running this contract
 
-You will need Rust 1.44.1+ with `wasm32-unknown-unknown` target installed.
+You will need Rust 1.44.1+ ~~with `wasm32-unknown-unknown` target installed.~~
+
+check rust version via 
+
+```
+rustc --version
+```
+
+install rustup: https://rustup.rs/
+
+add the target via `rustup target add wasm32-unknown-unknown` (source: https://github.com/rustwasm/book/issues/160)
 
 You can run unit tests on this via:
 
@@ -25,9 +35,9 @@ Once you are happy with the content, you can compile it to wasm via:
 
 ```
 RUSTFLAGS='-C link-arg=-s' cargo wasm
-cp ../../target/wasm32-unknown-unknown/release/cw20_base.wasm .
-ls -l cw20_base.wasm
-sha256sum cw20_base.wasm
+cp ../../target/wasm32-unknown-unknown/release/astroport_lbp_token.wasm .
+ls -l astroport_lbp_token.wasm
+sha256sum astroport_lbp_token.wasm
 ```
 
 Or for a production-ready (compressed) build, run the following from the

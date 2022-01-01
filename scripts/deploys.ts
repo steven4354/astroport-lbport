@@ -60,7 +60,7 @@ async function setupToken(cl: Client, cfg: Config) {
         );
 
         writeNetworkConfig(networkConfig, cl.terra.config.chainID)
-        console.log('setup token ---> FINISH')
+        console.log('setup token ---> FINISH. Addr: ', networkConfig.astroport_lbp_token.Addr)
     } else {
         console.log('Token is already exists.\nAddr: ', networkConfig.astroport_lbp_token.Addr);
     }
@@ -154,10 +154,10 @@ async function main() {
     const client = newClient();
     let config: Config = configDefault;
 
-    await uploadContracts(client);
-    await setupAstroportFactory(client, config);
-    await setupAstroportRouter(client, config);
-    await setupAstroportPair(client, config);
+    // await uploadContracts(client);
+    // await setupAstroportFactory(client, config);
+    // await setupAstroportRouter(client, config);
+    // await setupAstroportPair(client, config);
     await setupToken(client, config);
 }
 main().catch(console.log)

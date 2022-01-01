@@ -31,6 +31,17 @@ ls -l cw1_subkeys.wasm
 sha256sum cw1_subkeys.wasm
 ```
 
+not sure about the above. did this instead
+
+```
+RUSTFLAGS='-C link-arg=-s' cargo wasm
+cp ../../target/wasm32-unknown-unknown/release/<name-from-cargo-toml>.wasm .
+ls -l <name-from-cargo-toml>.wasm
+sha256sum <name-from-cargo-toml>.wasm
+```
+
+then I ploped the `<name-from-cargo-toml>.wasm` file in the contracts folder into the root `/artifacts`
+
 Or for a production-ready (compressed) build, run the following from the repository root:
 
 ```
